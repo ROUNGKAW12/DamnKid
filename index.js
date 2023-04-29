@@ -31,7 +31,21 @@ const ifLoggedin = (req,res,next) => {
         return res.redirect('/home');
     }
     next();
+}/*
+const ifRegisterin = (req,res,next) => {
+    if(req.session.ifRegisterin){
+        return res.redirect('/login-register');
+    }
+    next();
 }
+const ifRegisterout = (req,res,next) => {
+    if(req.session.ifRegisterout){
+        return res.redirect('/login-register');
+    }
+    next();
+}*/
+
+
 // END OF CUSTOM MIDDLEWARE
 // ROOT PAGE
 app.get('/', ifNotLoggedin, (req,res,next) => {
@@ -164,6 +178,9 @@ app.use('/', (req,res) => {
     res.status(404).send('<h1>404 Page Not Found!</h1>');
 });
 
+app.get('/home',(req,res,next)=>{
+    res.render('manu');
+});
 
 
 app.listen(3000, () => console.log("Server is Running..."));
