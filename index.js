@@ -19,6 +19,24 @@ app.use(cookieSession({
     maxAge:  3600 * 1000 // 1hr
 }));
 
+app.get('/drink',(req,res)=> {
+    res.render('drink');
+});
+app.get('/bread',(req,res)=> {
+    res.render('bread');
+});
+app.get('/manu',(req,res)=> {
+    res.render('manu');
+});
+app.get('/food',(req,res)=> {
+    res.render('food');
+});
+
+
+
+
+
+
 // DECLARING CUSTOM MIDDLEWARE
 const ifNotLoggedin = (req, res, next) => {
     if(!req.session.isLoggedIn){
@@ -163,13 +181,5 @@ app.get('/logout',(req,res)=>{
 app.use('/', (req,res) => {
     res.status(404).send('<h1>404 Page Not Found!</h1>');
 });
-
-app.get('/drink',(req,res)=> {
-    res.redirect('drink');
-});
-app.get('/bread',(req,res)=> {
-    res.send('bread.ejs');
-});
-
 
 app.listen(3000, () => console.log("Server is Running..."));
