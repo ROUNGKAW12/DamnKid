@@ -22,9 +22,14 @@ app.use(cookieSession({
 app.get('/drink',(req,res)=> {
     res.render('drink');
 });
-
 app.get('/bread',(req,res)=> {
     res.render('bread');
+});
+app.get('/manu',(req,res)=> {
+    res.render('manu');
+});
+app.get('/food',(req,res)=> {
+    res.render('food');
 });
 
 
