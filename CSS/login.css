@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    background: linear-gradient(#c7a0f5, #ffcaca);
+  }
+  html{
+    height: 100%;
+  }
+
+
+.main{
+    width: 100%;
+    background: linear-gradient(to top, #f38282 0%, #f83232);
+    background-position: center;
+    background-size: cover;
+    height: 109vh;
+}
+
+h1{
+    width: 100%;
+    background: linear-gradient(to top, #f38282 0%, #f83232);
+    background-position: center;
+    background-size: cover;
+    height: 109vh;
+}
