@@ -33,10 +33,6 @@ app.get('/food',(req,res)=> {
 });
 
 
-
-
-
-
 // DECLARING CUSTOM MIDDLEWARE
 const ifNotLoggedin = (req, res, next) => {
     if(!req.session.isLoggedIn){
