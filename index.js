@@ -31,21 +31,7 @@ const ifLoggedin = (req,res,next) => {
         return res.redirect('/home');
     }
     next();
-}/*
-const ifRegisterin = (req,res,next) => {
-    if(req.session.ifRegisterin){
-        return res.redirect('/login-register');
-    }
-    next();
 }
-const ifRegisterout = (req,res,next) => {
-    if(req.session.ifRegisterout){
-        return res.redirect('/login-register');
-    }
-    next();
-}*/
-
-
 // END OF CUSTOM MIDDLEWARE
 // ROOT PAGE
 app.get('/', ifNotLoggedin, (req,res,next) => {
@@ -65,7 +51,7 @@ app.post('/register', ifLoggedin,
 [
     body('user_email','Invalid email address!').isEmail().custom((value) => {
         return dbConnection.execute('SELECT `email` FROM `users` WHERE `email`=?', [value])
-        .then(([rows]) => {
+        .then(([rows]) => { 
             if(rows.length > 0){
                 return Promise.reject('This E-mail already in use!');
             }
@@ -178,8 +164,11 @@ app.use('/', (req,res) => {
     res.status(404).send('<h1>404 Page Not Found!</h1>');
 });
 
-app.get('/home',(req,res,next)=>{
-    res.render('manu');
+app.get('/drink',(req,res)=> {
+    res.redirect('drink');
+});
+app.get('/bread',(req,res)=> {
+    res.send('bread.ejs');
 });
 
 
