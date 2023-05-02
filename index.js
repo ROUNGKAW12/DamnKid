@@ -7,6 +7,7 @@ const { body, validationResult } = require('express-validator');
 
 const app = express();
 app.use(express.urlencoded({extended:false}));
+app.use(express.static('public'));
 
 // SET OUR VIEWS AND VIEW ENGINE
 app.set('views', path.join(__dirname,'views'));
